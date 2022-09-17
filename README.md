@@ -1,2 +1,2 @@
 # rock-paper-scissors
-Hello
+This is a project made with HTML, CSS and JavaScript
