@@ -5,7 +5,14 @@ const box_scissors = document.querySelector('.scissors');
 const close_btn = document.querySelector('.close-btn');
 const popup = document.querySelector('.popup');
 
-const arrayElements = ['rock', 'paper', 'scissors'];
+// rock, paper, scissors
+const arrayElements = ['Rock', 'Paper', 'Scissors'];
+
+let userPoints = 0;
+let computerPoints = 0;
+let state, text;
+let userChoice;
+let computerChoice;
 
 box_rock.addEventListener('click', function() {playRound(arrayElements[0])});
 box_paper.addEventListener('click', function() {playRound(arrayElements[1])});
@@ -15,6 +22,48 @@ close_btn.addEventListener('click', function() {
     popup.classList.remove('active');
 })
 
-function playRound(userChoice) {
+function playRound(user) {
+    userChoice = user;
     popup.classList.add('active');
+
+    computerChoice = arrayElements[Math.floor(Math.random()*3)];
+
+    if(userChoice == computerChoice) 
+    {
+        state = 'Draw!';
+        text = `${userChoice} is tied against ${computerChoice}`;
+    } else
+    if(userChoice == arrayElements[0] && computerChoice == arrayElements[2]) 
+    {
+        playerWins()
+    } else 
+    if(userChoice == arrayElements[1] && computerChoice == arrayElements[0])
+    {
+        playerWins()
+    } else 
+    if(userChoice == arrayElements[2] && computerChoice == arrayElements[1]) 
+    {
+        playerWins()
+    } else {
+        state = 'You Lose!';
+        text = `${computerChoice} beats ${userChoice}`;
+    }
+
+    render();
+}
+
+function render() {
+    const h1 = document.querySelector('.state');
+    const p1 = document.querySelector('.text');
+    const p2 = document.querySelector('.points');
+
+    h1.textContent = state;
+    p1.textContent = text;
+    p2.textContent = `You: ${userPoints} Computer: ${computerPoints}`;
+}
+
+function playerWins() {
+    state = 'You Win!';
+    userPoints++;
+    text = `${userChoice} beats ${computerChoice}`;
 }
