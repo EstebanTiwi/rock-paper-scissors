@@ -47,6 +47,7 @@ function playRound(user) {
     } else {
         state = 'You Lose!';
         text = `${computerChoice} beats ${userChoice}`;
+        computerPoints++;
     }
 
     render();
@@ -54,12 +55,14 @@ function playRound(user) {
 
 function render() {
     const h1 = document.querySelector('.state');
-    const p1 = document.querySelector('.text');
-    const p2 = document.querySelector('.points');
+    const p1 = document.querySelector('.text1');
+    const p2 = document.querySelector('.text2');
+    const p3 = document.querySelector('.points');
 
     h1.textContent = state;
-    p1.textContent = text;
-    p2.textContent = `You: ${userPoints} Computer: ${computerPoints}`;
+    p1.textContent = `You chose ${userChoice} and the Computer chose ${computerChoice}`;
+    p2.textContent = text;
+    p3.textContent = `You: ${userPoints} Computer: ${computerPoints}`;
 }
 
 function playerWins() {

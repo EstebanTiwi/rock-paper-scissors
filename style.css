@@ -9,7 +9,8 @@ html {
 }
 
 body {
-    background-color: #6BF5CD;
+    /* background-color: #6BF5CD; */
+    background-color: #0D6FA8;  
     height: 100vh;
 
     display: flex;
@@ -100,6 +101,9 @@ body {
 .popup p {
    color: #fdfdfd;
    font-size: 18px;
+
+   margin: 15px 0;
+   text-align: center;
 }
 /* .container {
     position: absolute ;
