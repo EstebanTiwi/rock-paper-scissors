@@ -47,3 +47,32 @@ body {
 .boxs .box:hover {
     transform: scale(1.1);
 }
+
+/* Pop Up */
+.popup {
+    position: fixed ;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border : 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow : inset 0px 0px 20px 5px rgba (255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width : 450px;
+    padding : 20px 30px;
+    border-radius: 10px;
+    z-index: 1000 ;
+    transition : top 0ms ease-in-out 300ms,
+        opacity 300ms ease-in-out 0ms,
+        transform 300ms ease-in-out 0ms;
+}
+.popup.active {
+    top : 50%;
+    transform : translate(-50%, -50%) scale(1);
+    opacity : 1;
+    transition : top 0ms ease-in-out 0ms,
+        opacity 300ms ease-in-out 0ms,
+        transform 300ms ease-in-out 0ms;
+}
